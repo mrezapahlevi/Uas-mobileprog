@@ -3,7 +3,6 @@ package com.example.belajarsqlite;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,12 +34,15 @@ public class MhsAdapter extends RecyclerView.Adapter<MhsAdapter.MhsVH> {
     public void onBindViewHolder(@NonNull MhsVH holder, int position) {
 
 
-        holder.tvNamaVal.setText(mhsList.get(position).getNama());
+        holder.tvNamaVal.setText((2*position) + 1  + mhsList.get(position).getNama());
+
         holder.tvNimVal.setText(mhsList.get(position).getNim());
         holder.tvNoHpVal.setText(mhsList.get(position).getNoHp());
 
         holder.bind(mhsList, position, listener);
+
     }
+
 
     public interface OnItemClickListener{
         void OnItemClick(ArrayList<MhsModel> mhsList, int position);

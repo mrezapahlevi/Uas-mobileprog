@@ -65,7 +65,12 @@ public class MainActivity extends AppCompatActivity {
 
                     if(!isEdit){
                         mm = new MhsModel(-1, isian_nama, isian_nim, isian_noHp);
-                        stts = db.simpan(mm);
+
+                        if(db.list().size() > 4){
+                            stts = false;
+                        }else{
+                            stts = db.simpan(mm);
+                        }
                         edNama.setText("");
                         edNim.setText("");
                         edNoHp.setText("");
